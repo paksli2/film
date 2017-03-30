@@ -17,7 +17,7 @@
 						        	
 						          <select class="form-control" id="sel2" name="sort">
 								    <option value="ASC">По возростанию</option>
-								    <option value="DESC">По упаданию</option>
+								    <option value="DESC">По убыванию</option>
 								  </select>
 						          <button class="btn btn-default" type="submit">
 						            Submit
