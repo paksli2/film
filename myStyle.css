@@ -1,0 +1,31 @@
+.film{
+	background-color: #ef9090;
+	padding: 6px;
+	margin: 2px;
+	border-radius: 3px;
+	border:solid 1px;
+	font-family: 'Exo', sans-serif;
+	font-size: 18px; 
+}
+
+.film_id{
+	font-weight:600;
+}
+
+.header_panel{
+	margin-bottom: 10px;
+}
+
+
+footer{
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  color: yellow;
+}
+
+.film_name a{
+	text-decoration: none !important;
+	color: black !important;
+}

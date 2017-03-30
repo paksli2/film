@@ -1,0 +1,48 @@
+.film{
+	background-color: #ef9090;
+	padding: 6px;
+	margin: 2px;
+	border-radius: 3px;
+	border:solid 1px;
+	font-family: 'Exo', sans-serif;
+	font-size: 18px; 
+}
+
+.film_id{
+	font-weight:600;
+}
+
+.header_panel{
+	margin-bottom: 10px;
+}
+
+
+footer{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+
+.film_name a{
+	text-decoration: none !important;
+	color: black !important;
+}
+
+.film_name a:hover{
+	color:#337ab7;
+}
+
+.remove a{
+	color: black;
+}
+
+.main{
+	margin-top: 50px;
+}
+
+.but{
+	margin-top: 20px;
+}
