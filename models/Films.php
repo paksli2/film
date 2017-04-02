@@ -1,17 +1,41 @@
 <?php 
 	
 	class Films{
+
+		const SIZE = 500000;
+		const UPLOAD_DIR = './txt';
+
+		public static function checkExpension($exp, $exp_example){
+
+			if($exp == $exp_example){
+				return true;
+			}
+
+			return false;
+
+		}
+
+		public static function checkFileSize($size){
+			if($size < self::SIZE){
+
+				return true;
+			}
+
+			return false;
+		}
+
 		public static function getAllFilmList(){
 			$db = Db::getConnection();
 			$filmList = array();
 
-			$result = $db->query('SELECT id,title FROM films');
+			$result = $db->query('SELECT id,title,year FROM films');
 
 			$i = 0;
 
 			while($row = $result->fetch()){
 				$filmList[$i]['id'] = $row['id'];
 				$filmList[$i]['title'] = $row['title'];
+				$filmList[$i]['year'] = $row['year'];
 				$i++;
 			}
 
@@ -55,6 +79,20 @@
 				');
 
 			return $db->lastInsertId();
+		}
+
+		public static function addFilmsToDB($films){
+			$filmsIds = array();
+			if(is_array($films)){
+				foreach ($films as $key => $value) {
+					if(!self::checkFilmInDB($value['title'])){
+						$filmsIds[] = self::addFilmToDB($value['title'], $value['year'], $value['format']);
+					}
+				}
+			}
+
+			return $filmsIds;
+
 		}
 
 		public static function checkFilmInDB($film_name){

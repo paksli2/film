@@ -3,7 +3,7 @@
 	class Actors{
 
 		public static function checkActorsInDB($actor_name){
-
+				$actor_name = trim($actor_name);
 				$db = Db::getConnection();				
 
 				$sql = ('SELECT* FROM actors WHERE name = :actor_name');
@@ -86,6 +86,20 @@
 			return $cast;
 		}
 
+
+		public static function addArrActorsToDB($films){
+			$castArr = array();
+			if(is_array($films)){
+
+				foreach ($films as $film) {
+					$castArr[] = self::addActorsToDB($film['cast']);
+				}
+			}
+
+			return $castArr;
+
+		}
+
 		public static function getActorsId($cast){
 
 			if(is_array($cast)){
@@ -131,6 +145,23 @@
 			}
 
 			return true;
+
+		}
+
+		public static function addArrLinkInDB($filmIds, $castArr){
+
+			if(is_array($filmIds) && is_array($castArr)){
+				$i = 0;
+				foreach ($filmIds as $filmId) {
+					self::addLinkInDB($filmId, $castArr[$i]);
+					$i++;
+				}
+
+				return true;
+			}
+
+			return false;
+			
 
 		}
 

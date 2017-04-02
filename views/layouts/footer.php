@@ -1,5 +1,5 @@
-		<footer>
-			<div class="col-md-12">Footer</div>
+		<footer class = "footer" data-spy="affix" >
+			<div class="container">Footer</div>
 		</footer>
 	</body>
 
@@ -7,6 +7,10 @@
 
 	<script type="text/javascript">
 		$(document).ready(function () {
+
+			$(':file').on('fileselect', function(event, numFiles, label) {
+				$('.brows').html(label);
+			 });
 
 			// $(document).on('click', '.remove a', function(event) {
 			// 	// event.stopPropagation();
